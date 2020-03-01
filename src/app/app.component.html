@@ -1,0 +1,29 @@
+<div class="disc-list disc-list-longplay-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Long Plays list</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card *ngFor="let longplay of longPlays">
+        <mat-card-header>
+          <mat-card-title>{{longplay.title}}</mat-card-title>
+          <mat-card-subtitle>{{longplay.artist}}</mat-card-subtitle>
+        </mat-card-header>
+        <img src="longplay.thumb" alt="longplay.title" title="longplay.title" />
+        <mat-card-content>
+          <p><small>{{longplay.artist}}</small></p>
+          <div class="long-play-details">
+            <p><strong>Price: </strong>{{longplay.value}}</p>
+            <p><strong>Category: </strong>{{longplay.category}}</p>
+          </div>
+          <div
+            class="long-play-musics"
+            *ngIf="musicsVisible"
+          >
+            <p *ngFor="let music of longplay.musics">{{music.title}}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
